@@ -1,0 +1,82 @@
+@import 'https://fonts.googleapis.com/css?family=Baloo+Bhaina';
+
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#frame {
+  position: absolute;
+  display: block;
+  background: black;
+  overflow: hidden;
+  height: 500px;
+  width: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url('../graphics/background.jpg');
+  background-size: cover;
+}
+
+#startButton {
+  position: absolute;
+  display: block;
+  height: 35px;
+  width: 230px;
+  background: limegreen;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Baloo Bhaina', cursive;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#timer {
+  position: absolute;
+  display: block;
+  font-family: 'Baloo Bhaina', cursive;
+  font-size: 60px;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.entity {
+  position: absolute;
+  display: block;
+  height: 40px;
+  width: 40px;
+  background-image: url('../graphics/player.png');
+  background-size: cover;
+  bottom: 20px;
+  transform: translate(-50%, 0%);
+  left: 50%;
+}
+
+.projectile {
+  position: absolute;
+  display: block;
+  height: 40px;
+  width: 3px;
+  background: limegreen;
+  bottom: 80px;
+  box-shadow: 0px 0px 15px 2px limegreen;
+  border-radius: 100%;
+}
+
+.enemy {
+  position: absolute;
+  display: block;
+  height: 40px;
+  width: 40px;
+  background-image: url('../graphics/enemy.png');
+  background-size: cover;
+}
