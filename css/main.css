@@ -54,7 +54,7 @@
   display: block;
   height: 40px;
   width: 40px;
-  background-image: url('../graphics/player.png');
+  background-image: url('../graphics/default.png');
   background-size: cover;
   bottom: 20px;
   transform: translate(-50%, 0%);
@@ -66,9 +66,7 @@
   display: block;
   height: 40px;
   width: 3px;
-  background: limegreen;
   bottom: 80px;
-  box-shadow: 0px 0px 15px 2px limegreen;
   border-radius: 100%;
 }
 
@@ -79,4 +77,82 @@
   width: 40px;
   background-image: url('../graphics/enemy.png');
   background-size: cover;
+  z-index: 400;
+}
+
+
+.optionsBtn {
+	position: relative;
+	display: block;
+	height: 25px;
+	width: 25px;
+	background-image: url('../graphics/options.png');
+	background-size: cover;
+	float: right;
+	margin: 5px;
+	cursor: pointer;
+	z-index: 500;
+}
+
+.optionsWindow {
+	position: absolute;
+	display: none;
+	height: 498px;
+	width: 498px;
+	top: 0;
+	left: 0;
+	border: 1px solid black;
+	background: white;
+	z-index: 450;
+	
+}
+
+.optionsWindow h1 {
+	position: relative;
+	display: block;
+	font-family: 'Baloo Bhaina', cursive;
+	text-align: center;
+	top: 30px;
+	font-size: 40px;
+}
+
+.playerOptions {
+	position: absolute;
+	display: block;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.playerOption {
+	position: relative;
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-size: cover;
+	border: 2px solid black;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#default {
+	background-image: url('../graphics/default.png');
+	border-color: limegreen !important;
+	
+}
+
+#playerOption1 {
+	background-image: url('../graphics/playerOption1.png');
+}
+
+#playerOption2 {
+	background-image: url('../graphics/playerOption2.png');
+}
+
+#playerOption3 {
+	background-image: url('../graphics/playerOption3.png');
+}
+
+#playerOption4 {
+	background-image: url('../graphics/playerOption4.png');
 }
