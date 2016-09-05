@@ -1,7 +1,10 @@
-var startButton, timer, audio, entity, frame;
+var startButton, timer, audio, entity, frame, optionsBtn, optionsWindow;
+var playerOptions;
 var keyboard = [];
 var entitySpeed = 8;
 var boundary = 500;
+var projectileSpeed = 5;
+var projectileColour = 'limegreen';
 
 
 function delay(length) {
@@ -47,6 +50,34 @@ function initialize(e) {
   timer = document.getElementById('timer');
   audio = document.getElementById('audio');
   frame = document.getElementById('frame');
+  optionsBtn = document.getElementsByClassName('optionsBtn')[0];
+  optionsWindow = document.getElementsByClassName('optionsWindow')[0];
+  playerOptions = document.getElementsByClassName('playerOption');
+  for(var i = 0; i < playerOptions.length; i++) {
+	  playerOptions[i].addEventListener('click', function(event){
+		  entity.style.backgroundImage = 'url(graphics/'+this.id+'.png)';
+		  switch(this.id) {
+				case 'playerOption1':
+					projectileColour = 'purple';
+				break;
+				case 'playerOption2':
+					projectileColour = 'red';
+					break;
+				case 'playerOption3':
+					projectileColour = 'yellow';
+					break;
+				case 'playerOption4':
+					projectileColour = 'blue';
+					break;
+				default:
+					projectileColour = 'limegreen';
+					break;
+		  }
+		  optionsWindow.style.display = 'none';
+	  });
+  }
+  
+  optionsBtn.addEventListener('click', openOptionsWindow, false);
 
   document.addEventListener('keydown', function(event) {
     keyboard[event.keyCode] = true;
@@ -110,6 +141,8 @@ function fireProjectile(event) {
   projectile = document.createElement('div');
   projectile.className = 'projectile';
   projectile.style.left = (entity.offsetLeft) + "px";
+  projectile.style.background = projectileColour;
+  projectile.style.boxShadow = '0px 0px 15px 2px '+ projectileColour;
   frame.appendChild(projectile);
   enemies = document.getElementsByClassName('enemy');
   function moveProjectile () {
@@ -126,7 +159,7 @@ function fireProjectile(event) {
         } else {
           frame.removeChild(projectile);
         }
-     }, 40);
+     }, 1);
   }
   moveProjectile();
 
@@ -135,7 +168,10 @@ function fireProjectile(event) {
 }
 
 function destroy_enemy(target) {
-  frame.removeChild(target);
+	target.style.backgroundImage = "url(graphics/explode.png)";
+	setTimeout(function(){
+		frame.removeChild(target);
+	},1000);
 }
 
 
@@ -159,4 +195,12 @@ function loadEntity() {
 function startGame() {
   loadEntity();
   loadEnemies();
+}
+
+function openOptionsWindow(event) {
+	if(optionsWindow.style.display == 'none') {
+		optionsWindow.style.display = 'block';
+	} else {
+		optionsWindow.style.display = 'none';
+	}
 }
